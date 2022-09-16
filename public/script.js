@@ -25,41 +25,41 @@ window.addEventListener('load', function() {
     disableEvent(event)
   })
 
-  var onSuccess = function(geoipResponse) {
-    document.getElementsByClassName('city')[0].innerHTML = geoipResponse.city.names.en || 'Unknown'
-    document.getElementsByClassName('continent')[0].innerHTML = geoipResponse.continent.names.en || 'Unknown'
-    document.getElementsByClassName('country')[0].innerHTML = geoipResponse.country.names.en || 'Unknown'
-    document.getElementsByClassName('time_zone')[0].innerHTML = geoipResponse.location.time_zone || 'Unknown'
-    document.getElementsByClassName('city')[0].innerHTML = geoipResponse.city.names.en || 'Unknown'
-    document.getElementsByClassName('state')[0].innerHTML = geoipResponse.subdivisions[0].names.en || 'Unknown'
-    document.getElementsByClassName('isp')[0].innerHTML = geoipResponse.traits.isp || 'Unknown'
-    document.getElementsByClassName('user_type')[0].innerHTML = geoipResponse.traits.user_type || 'Unknown'
+  // var onSuccess = function(geoipResponse) {
+  //   document.getElementsByClassName('city')[0].innerHTML = geoipResponse.city.names.en || 'Unknown'
+  //   document.getElementsByClassName('continent')[0].innerHTML = geoipResponse.continent.names.en || 'Unknown'
+  //   document.getElementsByClassName('country')[0].innerHTML = geoipResponse.country.names.en || 'Unknown'
+  //   document.getElementsByClassName('time_zone')[0].innerHTML = geoipResponse.location.time_zone || 'Unknown'
+  //   document.getElementsByClassName('city')[0].innerHTML = geoipResponse.city.names.en || 'Unknown'
+  //   document.getElementsByClassName('state')[0].innerHTML = geoipResponse.subdivisions[0].names.en || 'Unknown'
+  //   document.getElementsByClassName('isp')[0].innerHTML = geoipResponse.traits.isp || 'Unknown'
+  //   document.getElementsByClassName('user_type')[0].innerHTML = geoipResponse.traits.user_type || 'Unknown'
 
-  };
+  // };
 
-  var onError = function(error) {
-    document.getElementsByClassName('city')[0].innerHTML = 'Error'
-    document.getElementsByClassName('continent')[0].innerHTML = 'Error'
-    document.getElementsByClassName('country')[0].innerHTML = 'Error'
-    document.getElementsByClassName('time_zone')[0].innerHTML = 'Error'
-    document.getElementsByClassName('city')[0].innerHTML = 'Error'
-    document.getElementsByClassName('state')[0].innerHTML = 'Error'
-    document.getElementsByClassName('isp')[0].innerHTML = 'Error'
-    document.getElementsByClassName('user_type')[0].innerHTML = 'Error'
-  };
+  // var onError = function(error) {
+  //   document.getElementsByClassName('city')[0].innerHTML = 'Error'
+  //   document.getElementsByClassName('continent')[0].innerHTML = 'Error'
+  //   document.getElementsByClassName('country')[0].innerHTML = 'Error'
+  //   document.getElementsByClassName('time_zone')[0].innerHTML = 'Error'
+  //   document.getElementsByClassName('city')[0].innerHTML = 'Error'
+  //   document.getElementsByClassName('state')[0].innerHTML = 'Error'
+  //   document.getElementsByClassName('isp')[0].innerHTML = 'Error'
+  //   document.getElementsByClassName('user_type')[0].innerHTML = 'Error'
+  // };
   
-  if (typeof geoip2 !== 'undefined') {
-    geoip2.insights(onSuccess, onError);
-  } else {
-    document.getElementsByClassName('city')[0].innerHTML = 'GeoIP2 Request Blocked'
-    document.getElementsByClassName('continent')[0].innerHTML = 'GeoIP2 Request Blocked'
-    document.getElementsByClassName('country')[0].innerHTML = 'GeoIP2 Request Blocked'
-    document.getElementsByClassName('time_zone')[0].innerHTML = 'GeoIP2 Request Blocked'
-    document.getElementsByClassName('city')[0].innerHTML = 'GeoIP2 Request Blocked'
-    document.getElementsByClassName('state')[0].innerHTML = 'GeoIP2 Request Blocked'
-    document.getElementsByClassName('isp')[0].innerHTML = 'GeoIP2 Request Blocked'
-    document.getElementsByClassName('user_type')[0].innerHTML = 'GeoIP2 Request Blocked'
-  }
+  // if (typeof geoip2 !== 'undefined') {
+  //   geoip2.insights(onSuccess, onError);
+  // } else {
+  //   document.getElementsByClassName('city')[0].innerHTML = 'GeoIP2 Request Blocked'
+  //   document.getElementsByClassName('continent')[0].innerHTML = 'GeoIP2 Request Blocked'
+  //   document.getElementsByClassName('country')[0].innerHTML = 'GeoIP2 Request Blocked'
+  //   document.getElementsByClassName('time_zone')[0].innerHTML = 'GeoIP2 Request Blocked'
+  //   document.getElementsByClassName('city')[0].innerHTML = 'GeoIP2 Request Blocked'
+  //   document.getElementsByClassName('state')[0].innerHTML = 'GeoIP2 Request Blocked'
+  //   document.getElementsByClassName('isp')[0].innerHTML = 'GeoIP2 Request Blocked'
+  //   document.getElementsByClassName('user_type')[0].innerHTML = 'GeoIP2 Request Blocked'
+  // }
 });
 
 function requestPointerLock() {

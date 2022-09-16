@@ -18,14 +18,14 @@ function App() {
             <p>TLS Version: <code className="tls"></code></p>
             <p>HTTP Version: <code className="http"></code></p>
             <p>SNI Encrypted: <code className="sni"></code></p>
-            <hr style={{'marginTop': '10px', 'marginBottom': '10px'}}></hr>
+            {/* <hr style={{'marginTop': '10px', 'marginBottom': '10px'}}></hr>
             <p>Continent: <code className="continent"></code></p>
             <p>Country: <code className="country"></code></p>
             <p>State: <code className="state"></code></p>
             <p>City: <code className="city"></code></p>
             <p>Time Zone: <code className="time_zone"></code></p>
             <p>ISP: <code className="isp"></code></p>
-            <p>Network Type: <code className="user_type"></code></p>
+            <p>Network Type: <code className="user_type"></code></p> */}
         </article>
       </header>
     </div>
