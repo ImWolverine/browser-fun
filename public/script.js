@@ -7,22 +7,52 @@ async function getCloudflareJSON() {
 window.ua = window.UAParser(navigator.userAgent);
 let interactionCount = 0
 
-getCloudflareJSON().then((data) => {
-  document.getElementsByClassName('ip')[0].innerHTML = data['ip']
-  document.getElementsByClassName('tls')[0].innerHTML = data['tls']
-  document.getElementsByClassName('http')[0].innerHTML = data['http']
-  document.getElementsByClassName('sni')[0].innerHTML = data['sni']
-  document.getElementsByClassName('loc')[0].innerHTML = data['loc']
-})
-
 window.addEventListener('load', function() {
   document.body.style.cursor = 'default';
+
+  getCloudflareJSON().then((data) => {
+    document.getElementsByClassName('ip')[0].innerHTML = data['ip']
+    document.getElementsByClassName('tls')[0].innerHTML = data['tls']
+    document.getElementsByClassName('http')[0].innerHTML = data['http']
+    document.getElementsByClassName('sni')[0].innerHTML = data['sni']
+    document.getElementsByClassName('loc')[0].innerHTML = data['loc']
+  })
+
   blockBackButton()
   fillHistory()
 
   interceptUserInput(event => {
     disableEvent(event)
   })
+
+  var onSuccess = function(geoipResponse) {
+    document.getElementsByClassName('city')[0].innerHTML = geoipResponse.city.names.en || 'Unknown'
+    document.getElementsByClassName('continent')[0].innerHTML = geoipResponse.continent.names.en || 'Unknown'
+    document.getElementsByClassName('country')[0].innerHTML = geoipResponse.country.names.en || 'Unknown'
+    document.getElementsByClassName('time_zone')[0].innerHTML = geoipResponse.location.time_zone || 'Unknown'
+    document.getElementsByClassName('city')[0].innerHTML = geoipResponse.city.names.en || 'Unknown'
+    document.getElementsByClassName('state')[0].innerHTML = geoipResponse.subdivisions[0].names.en || 'Unknown'
+    document.getElementsByClassName('isp')[0].innerHTML = geoipResponse.traits.isp || 'Unknown'
+    document.getElementsByClassName('user_type')[0].innerHTML = geoipResponse.traits.user_type || 'Unknown'
+
+  };
+
+  var onError = function(error) {
+    document.getElementsByClassName('city')[0].innerHTML = 'Error'
+    document.getElementsByClassName('continent')[0].innerHTML = 'Error'
+    document.getElementsByClassName('country')[0].innerHTML = 'Error'
+    document.getElementsByClassName('time_zone')[0].innerHTML = 'Error'
+    document.getElementsByClassName('city')[0].innerHTML = 'Error'
+    document.getElementsByClassName('state')[0].innerHTML = 'Error'
+    document.getElementsByClassName('isp')[0].innerHTML = 'Error'
+    document.getElementsByClassName('user_type')[0].innerHTML = 'Error'
+  };
+  
+  if (typeof geoip2 !== 'undefined') {
+    geoip2.insights(onSuccess, onError);
+  } else {
+    document.getElementsByClassName('city')[0].innerHTML = 'GeoIP2 Request Blocked'
+  }
 });
 
 function requestPointerLock() {
