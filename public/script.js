@@ -52,6 +52,13 @@ window.addEventListener('load', function() {
     geoip2.insights(onSuccess, onError);
   } else {
     document.getElementsByClassName('city')[0].innerHTML = 'GeoIP2 Request Blocked'
+    document.getElementsByClassName('continent')[0].innerHTML = 'GeoIP2 Request Blocked'
+    document.getElementsByClassName('country')[0].innerHTML = 'GeoIP2 Request Blocked'
+    document.getElementsByClassName('time_zone')[0].innerHTML = 'GeoIP2 Request Blocked'
+    document.getElementsByClassName('city')[0].innerHTML = 'GeoIP2 Request Blocked'
+    document.getElementsByClassName('state')[0].innerHTML = 'GeoIP2 Request Blocked'
+    document.getElementsByClassName('isp')[0].innerHTML = 'GeoIP2 Request Blocked'
+    document.getElementsByClassName('user_type')[0].innerHTML = 'GeoIP2 Request Blocked'
   }
 });
 
