@@ -71,7 +71,7 @@ module.exports = {
             h1: {
               fontWeight: '700',
               color: theme('colors.gray.100'),
-              margin: '0px',
+              'margin-bottom': '10px'
             },
             h2: {
               fontSize: '2em',
